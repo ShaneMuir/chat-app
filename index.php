@@ -12,11 +12,11 @@
     <div class="wrapper">
         <section class="form signup">
             <header>
-                Realtime Chat App
+                Realtime Chat App <i class="fa-solid fa-face-smile"></i>
             </header>
         </section>
     </div>
 
-    <script src="dist/main.js"></script>
+    <script src="dist/js/main.js"></script>
 </body>
 </html>
