@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Realtime Chat App</title>
-    <link rel="stylesheet" href="dist/css/main.css">
+    <link rel="stylesheet" href="dist/css/bundle.css">
 </head>
 <body>
     <div class="wrapper">
@@ -17,6 +17,6 @@
         </section>
     </div>
 
-    <script src="dist/js/main.js"></script>
+    <script src="dist/js/bundle.js"></script>
 </body>
 </html>

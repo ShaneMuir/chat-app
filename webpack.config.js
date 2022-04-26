@@ -1,60 +1,38 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = {
-    mode: 'development',
+module.exports  = {
+    mode: 'production',
     entry: {
-        main: path.resolve(__dirname, 'src/index.js')
+        bundle: path.resolve(__dirname, 'src/index.js')
     },
     output: {
         path: path.resolve(__dirname, 'dist/js'),
-        filename: 'main.js',
+        filename: "[name].js",
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: path.join('..', 'css', '[name].css')
+        }),
+    ],
     module: {
         rules: [
             {
-                test: /\.scss$/,
-                use:[
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'postcss-loader',
-                    'sass-loader',
-                ],
-            },
-            {
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader', 'postcss-loader'],
-            },
-            {
-                test:/\.js$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env'],
-                    },
-                },
+                        presets: ['@babel/preset-env']
+                    }
+                }
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource'
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'
+                ]
             },
         ]
-    },
-    externals: {
-        $: '$',
-        jquery: 'jQuery',
-    },
-    plugins: [
-        new MiniCssExtractPlugin({filename: path.join('..', 'css', '[name].css')}),
-    ],
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new TerserPlugin({
-                parallel: true,
-            })
-        ],
     }
 }
