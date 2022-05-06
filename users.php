@@ -1,15 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Realtime Chat App | Users</title>
-    <link rel="icon" type="image/png" href="/">
-    <link rel="stylesheet" href="dist/css/bundle.css">
-</head>
-<body>
+<?php include('header.php'); ?>
 <div class="wrapper">
     <section class="users">
         <header>
@@ -32,6 +21,5 @@
         </div>
     </section>
 </div>
-<script src="dist/js/bundle.js"></script>
-</body>
-</html>
+<script src="dist/js/users.js"></script>
+<?php include('footer.php'); ?>

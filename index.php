@@ -1,22 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Realtime Chat App | Sign Up</title>
-    <link rel="icon" type="image/png" href="/">
-    <link rel="stylesheet" href="dist/css/bundle.css">
-</head>
-<body>
+<?php
+include('header.php');
+?>
 <div class="wrapper">
     <section class="form signup">
         <header>
             Realtime Chat App
         </header>
         <form action="#">
-            <div class="error-txt">This is an error message!</div>
+            <div class="error-text">This is an error message!</div>
             <div class="name-details">
                 <div class="field input">
                     <label for="First Name">First Name</label>
@@ -47,7 +38,5 @@
         <div class="link">Already signed up? <a href="/login.php">Login Now</a></div>
     </section>
 </div>
-
-<script src="dist/js/bundle.js"></script>
-</body>
-</html>
+<script src="dist/js/pass-show-hide.js"></script>
+<?php include('footer.php'); ?>
