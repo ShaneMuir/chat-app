@@ -1,18 +1,33 @@
-<?php include('header.php'); ?>
+<?php
+session_start();
+include_once "php/config.php";
+if(!isset($_SESSION['unique_id'])) {
+    header('location: login.php');
+}
+
+include_once('header.php');
+
+?>
 <div class="wrapper">
     <section class="users">
         <header>
             <div class="content">
-                <img src="https://via.placeholder.com/50" alt="">
+                <?php
+                $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$_SESSION['unique_id']}'");
+                if(mysqli_num_rows($sql) > 0) {
+                    $row = mysqli_fetch_assoc($sql);
+                }
+                ?>
+                <img src="php/images/<?php echo $row['img']; ?>" alt="">
                 <div class="details">
-                    <span>Shane Muir</span>
-                    <p>Active Now</p>
+                    <span><?php echo ucfirst($row['fname']). " " . ucfirst($row['lname']) ?></span>
+                    <p><?php echo $row['status']; ?></p>
                 </div>
             </div>
-            <a href="#" class="logout">Logout</a>
+            <a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>" class="logout">Logout</a>
         </header>
         <div class="search">
-            <span class="text">Select an user to start chat</span>
+            <span class="text">Select a user to start chat</span>
             <input type="text" placeholder="Enter name to search...">
             <button><i class="fas fa-search"></i></button>
         </div>
@@ -22,4 +37,4 @@
     </section>
 </div>
 <script src="dist/js/users.js"></script>
-<?php include('footer.php'); ?>
+<?php include_once('footer.php'); ?>

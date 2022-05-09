@@ -1,18 +1,24 @@
-<?php include('header.php'); ?>
+<?php
+session_start();
+if(isset($_SESSION['unique_id'])) {
+    header('location: users.php');
+}
+include_once('header.php');
+?>
 <div class="wrapper">
     <section class="form login">
         <header>
             Realtime Chat App
         </header>
-        <form action="#">
-            <div class="error-txt">This is an error message!</div>
+        <form action="#" method="post" enctype="multipart/form-data" autocomplete="off">
+            <div class="error-text"></div>
             <div class="field input">
                 <label for="Email">Email</label>
-                <input type="email" placeholder="Enter email">
+                <input type="email" name="email" placeholder="Enter your email" required>
             </div>
             <div class="field input">
                 <label for="Password">Password</label>
-                <input type="password" placeholder="Enter new password">
+                <input type="password" name="password" placeholder="Enter your password" required>
                 <i class="fas fa-eye"></i>
             </div>
 
@@ -24,4 +30,5 @@
     </section>
 </div>
 <script src="dist/js/pass-show-hide.js"></script>
-<?php include('footer.php'); ?>
+<script src="dist/js/login.js"></script>
+<?php include_once('footer.php'); ?>

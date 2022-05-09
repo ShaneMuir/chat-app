@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include_once('header.php'); ?>
 <div class="wrapper">
     <section class="chat-area">
         <header>
@@ -20,4 +20,4 @@
     </section>
 </div>
 
-<?php include('footer.php'); ?>
+<?php include_once('footer.php'); ?>
