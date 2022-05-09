@@ -11,3 +11,17 @@ searchIcon.onclick = ()=>{
     searchBar.classList.remove("active");
   }
 }
+
+setInterval(() => {
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "php/users.php", true);
+  xhr.onload = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE) {
+      let data = xhr.response;
+      if(!searchBar.classList.contains('active')) {
+        usersList.innerHTML = data;
+      }
+    }
+  }
+  xhr.send();
+}, 500);
