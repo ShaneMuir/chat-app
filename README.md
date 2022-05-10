@@ -18,3 +18,6 @@ Git clone the project using the following command into your project folder:
 git clone https://github.com/ShaneMuir/chat-app
 ```
 You will need to import the database. Create a new database and import the chatapp.sql file that you should now have in your project folder.
+
+Update `/php/config.php` with your own config vars.
+
