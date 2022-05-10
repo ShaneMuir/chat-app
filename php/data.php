@@ -1,9 +1,13 @@
 <?php
-// Code for showing last active
+    /*
+     * The below method is created to show users last active
+     * just like facebook messenger does.
+     */
     function get_time_ago( $time )
     {
         $time_difference = time() - $time;
-        if( $time_difference < 1 ) { return 'less than 1 second ago'; }
+        if( $time_difference < 60 ) { return 'Last active: about 1 minute ago'; }
+
         $condition = array( 12 * 30 * 24 * 60 * 60 =>  'year',
             30 * 24 * 60 * 60       =>  'month',
             24 * 60 * 60            =>  'day',
@@ -14,15 +18,17 @@
         foreach( $condition as $secs => $str )
         {
             $d = $time_difference / $secs;
-            if( $d >= 1 )
-            {
-                if($d <= 86400) {
-                    $t = round( $d );
-                    return 'Last active: about ' . $t . ' ' . $str . ( $t > 1 ? 's' : '' ) . ' ago';
-                }
-                else
+            if($time_difference > 60) {
+                if( $d > 1 )
                 {
-                    return "Offline now";
+                    if($d <= 86400) {
+                        $t = round( $d );
+                        return 'Last active: about ' . $t . ' ' . $str . ( $t > 1 ? 's' : '' ) . ' ago';
+                    }
+                    else
+                    {
+                        return "Offline now";
+                    }
                 }
             }
         }
