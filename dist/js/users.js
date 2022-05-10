@@ -12,6 +12,15 @@ searchIcon.onclick = ()=>{
   }
 }
 
+searchBar.onkeydown = (e) => {
+  if(e.keyCode === 27) {
+    if(searchBar.classList.contains('show')) {
+      searchIcon.classList.remove('active');
+      searchBar.classList.remove('show');
+    }
+  }
+}
+
 setInterval(() => {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "php/users.php", true);
