@@ -18,7 +18,7 @@ include_once('header.php');
                     $row = mysqli_fetch_assoc($sql);
                 }
                 ?>
-                <img src="php/images/<?php echo $row['img']; ?>" alt="">
+                <img src="https://github.com/ShaneMuir/chat-app/blob/main/php/images/<?php echo $row['img']; ?>" alt="">
                 <div class="details">
                     <span><?php echo ucfirst($row['fname']). " " . ucfirst($row['lname']) ?></span>
                     <p><?php echo $row['status']; ?></p>
