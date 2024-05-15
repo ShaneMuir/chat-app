@@ -30,10 +30,11 @@
 
                             if (move_uploaded_file($tmp_name, "images/" . $new_img_name)) {
                                 $status = "Active now";
+                                $last_active = time();
                                 $random_id = rand(time(), 10000000);
                                 $encrypt_pass = md5($password);
-                                $sql2 = mysqli_query($conn, "INSERT INTO users (unique_id, fname, lname, email, password, img, status)
-                                    VALUES ({$random_id}, '{$fname}', '{$lname}', '{$email}', '{$encrypt_pass}', '{$new_img_name}', '{$status}')");
+                                $sql2 = mysqli_query($conn, "INSERT INTO users (unique_id, fname, lname, email, password, img, status, last_active)
+                                    VALUES ({$random_id}, '{$fname}', '{$lname}', '{$email}', '{$encrypt_pass}', '{$new_img_name}', '{$status}', '{$last_active}')");
 
                                 if ($sql2) {
                                     $sql3 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");

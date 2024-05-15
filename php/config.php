@@ -1,7 +1,7 @@
 <?php
 
 // Set mode for production / development
-const MODE = 'production';
+const MODE = 'dev';
 
 if(MODE == 'production'):
     //Get Heroku ClearDB connection information
